@@ -34,4 +34,4 @@ identification and correlation purposes.
 *  This program has been tested with UAP-AC-Lite devices running firmware version
 6.6.77.
 *  Output metrics are compatible with those of [Unpoller](https://unpoller.com/)
-as musch as possible.
+as much as possible.

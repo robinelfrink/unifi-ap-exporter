@@ -29,6 +29,19 @@ point to use an SSH key is left to your Google skills.
 The `name` of the accesspoint is used as a label on all metrics, for
 identification and correlation purposes.
 
+## Running with Docker
+
+```shell
+$ docker run \
+      --detach \
+      --rm \
+      --name unif-ap-exporter \
+      --publish 9130:9130 \
+      --volume $(pwd)/unifi-ap-exporter.yaml:/home/nonroot/unifi-ap-exporter.yaml \
+      --volume $(pwd)/sshkey:/home/nonroot/sshkey \
+      ghcr.io/robinelfrink/unifi-ap-exporter:latest
+```
+
 ## Compatibility
 
 *  This program has been tested with UAP-AC-Lite devices running firmware version

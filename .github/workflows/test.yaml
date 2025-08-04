@@ -78,9 +78,7 @@ jobs:
       with:
         go-version: '1.24.5'
     - name: Setup Ko
-      uses: imjasonh/setup-ko@v0.9
-      with:
-        version: v0.11.2
+      uses: ko-build/setup-ko@v0.9
     - name: Build containers
       env:
         VERSION: ${{ github.sha }}

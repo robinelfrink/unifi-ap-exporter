@@ -1,0 +1,8 @@
+builds:
+  - id: ko
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -w -s -X 'main.Version={{ .Env.VERSION }}'

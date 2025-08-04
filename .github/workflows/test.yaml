@@ -82,6 +82,8 @@ jobs:
       with:
         version: v0.11.2
     - name: Build containers
+      env:
+        VERSION: ${{ github.sha }}
       run: |
         ko build \
             --platform=linux/amd64,linux/arm/v7,linux/arm64 \

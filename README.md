@@ -37,8 +37,9 @@ $ docker run \
       --rm \
       --name unif-ap-exporter \
       --publish 9130:9130 \
-      --volume $(pwd)/unifi-ap-exporter.yaml:/home/nonroot/unifi-ap-exporter.yaml \
-      --volume $(pwd)/sshkey:/home/nonroot/sshkey \
+      --workdir /work \
+      --volume $(pwd)/unifi-ap-exporter.yaml:/work/unifi-ap-exporter.yaml \
+      --volume $(pwd)/sshkey:/work/sshkey \
       ghcr.io/robinelfrink/unifi-ap-exporter:latest
 ```
 

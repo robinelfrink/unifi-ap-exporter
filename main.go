@@ -44,7 +44,7 @@ func main() {
 	}
 
 	if *versionFlag {
-		log.Info("unifi-ap-exporter ", Version)
+		log.Infof("unifi-ap-exporter %s", Version)
 		os.Exit(0)
 	}
 
@@ -54,6 +54,7 @@ func main() {
 		os.Exit(0)
 	}
 
+	log.Infof("unifi-ap-exporter %s starting", Version)
 	collector := unifiApExporter.NewCollector(*config)
 	exporter := unifiApExporter.NewExporter(*collector)
 	exporter.Run()

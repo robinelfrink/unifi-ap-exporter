@@ -177,7 +177,7 @@ func (e *Exporter) Describe(ch chan<- *prometheus.Desc) {
 func (e *Exporter) Run() {
 	prometheus.MustRegister(e)
 	http.Handle("/metrics", promhttp.Handler())
-	log.Info("listening for requests on port ", e.collector.config.Global.ListenPort)
+	log.Infof("listening for requests on port %d", e.collector.config.Global.ListenPort)
 	log.Fatal(http.ListenAndServe(fmt.Sprint(":", e.collector.config.Global.ListenPort), nil))
 }
 

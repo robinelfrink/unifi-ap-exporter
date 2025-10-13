@@ -66,6 +66,8 @@ jobs:
   containers:
     name: Create containers
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     needs:
     - lint
     - analyze

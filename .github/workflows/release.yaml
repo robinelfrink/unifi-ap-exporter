@@ -1,10 +1,7 @@
 name: release
 
 
-on:
-  push:
-    branches:
-    - main
+on: workflow_dispatch
 
 
 jobs:
@@ -12,6 +9,7 @@ jobs:
   tag:
     name: Create version tag
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     permissions:
       packages: write
     outputs:
@@ -31,6 +29,7 @@ jobs:
   containers:
     name: Create containers
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     permissions:
       packages: write
     needs: tag
@@ -73,6 +72,7 @@ jobs:
   binaries:
     name: Create binaries
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     needs: tag
     strategy:
       matrix:
@@ -114,6 +114,7 @@ jobs:
   release:
     name: Create release
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     permissions:
       packages: write
     needs:

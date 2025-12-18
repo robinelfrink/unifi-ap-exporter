@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Calculate tag
       uses: mathieudutour/github-tag-action@v6.2
       id: tag
@@ -25,24 +25,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Setup Go
-      uses: WillAbides/setup-go-faster@v1.14.0
+      uses: actions/setup-go@v6.1.0
       with:
-        go-version: '1.24.6'
+        go-version-file: 'go.mod'
     - name: Run golangci-lint
-      uses: golangci/golangci-lint-action@v8
+      uses: golangci/golangci-lint-action@v9
 
   test:
     name: Test code
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Setup Go
-      uses: WillAbides/setup-go-faster@v1.14.0
+      uses: actions/setup-go@v6.1.0
       with:
-        go-version: '1.24.6'
+        go-version-file: 'go.mod'
     - name: Install dependencies
       run: go get .
     - name: Run unit tests
@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v4
       with:
@@ -74,11 +74,11 @@ jobs:
     - test
     steps:
     - name: Checkout code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Setup Go
-      uses: WillAbides/setup-go-faster@v1.14.0
+      uses: actions/setup-go@v6.1.0
       with:
-        go-version: '1.24.6'
+        go-version-file: 'go.mod'
     - name: Setup Ko
       uses: ko-build/setup-ko@v0.9
     - name: Build containers
@@ -119,14 +119,14 @@ jobs:
           goarch: arm
     steps:
     - name: Checkout code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Fetch short SHA
       uses: benjlevesque/short-sha@v3.0
       id: short-sha
     - name: Setup Go
-      uses: WillAbides/setup-go-faster@v1.14.0
+      uses: actions/setup-go@v6.1.0
       with:
-        go-version: '1.24.6'
+        go-version-file: 'go.mod'
     - name: Build binaries
       env:
         GOOS: ${{ matrix.goos }}

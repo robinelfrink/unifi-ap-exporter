@@ -2,7 +2,7 @@ module unifi-ap-exporter
 
 go 1.25.5
 
-require github.com/sirupsen/logrus v1.9.3
+require github.com/sirupsen/logrus v1.9.4
 
 require (
 	github.com/kr/text v0.2.0 // indirect

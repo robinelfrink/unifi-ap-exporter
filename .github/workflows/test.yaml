@@ -80,7 +80,7 @@ jobs:
       with:
         go-version-file: 'go.mod'
     - name: Setup Ko
-      uses: ko-build/setup-ko@v0.9
+      uses: ko-build/setup-ko@v0.10
     - name: Build containers
       env:
         VERSION: ${{ github.sha }}
